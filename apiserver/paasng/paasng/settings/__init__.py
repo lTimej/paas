@@ -92,6 +92,7 @@ setattr(pymysql, "version_info", (1, 4, 2, "final", 0))
 # 蓝鲸数据库内容加密私钥
 # 使用 `from cryptography.fernet import Fernet; Fernet.generate_key()` 生成随机秘钥
 # 详情查看：https://cryptography.io/en/latest/fernet/
+settings.__setattr__("BKKRILL_ENCRYPT_SECRET_KEY", "uMREPHGQOc33aihN_4Pp-ppsrIJyyRhPk4LHfxuGBIM=")
 BKKRILL_ENCRYPT_SECRET_KEY = force_bytes(settings.get("BKKRILL_ENCRYPT_SECRET_KEY", ""))
 
 # Django 项目使用的 SECRET_KEY，如未配置，使用 BKKRILL 的 secret key 替代
