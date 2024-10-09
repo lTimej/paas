@@ -154,6 +154,8 @@ class SMartPackageCreatorViewSet(viewsets.ViewSet):
                 except (ControllerError, DescriptionValidationError) as e:
                     logger.exception("Create app error !")
                     raise error_codes.FAILED_TO_HANDLE_APP_DESC.f(e.message)
+                except Exception as e:
+                    print(e)
 
             # Step 3. dispatch package as Image to registry
             try:

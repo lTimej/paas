@@ -17,6 +17,7 @@ require (
 	github.com/prometheus/client_golang v1.13.0
 	github.com/samber/lo v1.25.0
 	github.com/tidwall/sjson v1.2.5
+	go.uber.org/zap v1.19.1
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17
 	golang.org/x/net v0.17.0
 	golang.org/x/time v0.0.0-20220922220347-f3bd1da661af
@@ -71,7 +72,6 @@ require (
 	github.com/tidwall/pretty v1.2.1 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
-	go.uber.org/zap v1.19.1 // indirect
 	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b // indirect
 	golang.org/x/sys v0.15.0 // indirect

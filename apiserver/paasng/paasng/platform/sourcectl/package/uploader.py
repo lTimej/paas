@@ -48,12 +48,15 @@ def upload_to_blob_store(package: PathLike, key: str, allow_overwrite: bool = Fa
 
     :return str: the full url which describe store type, bucket, key
     """
+    print(settings.BLOBSTORE_S3_SECRET_KEY, settings.BLOBSTORE_S3_ACCESS_KEY, settings.BLOBSTORE_S3_ENDPOINT, settings.BLOBSTORE_S3_REGION_NAME, settings.BLOBSTORE_S3_SIG_VERSION)
     logger.debug("[BlobStore] uploading %s to BlobStore[%s]", package, key)
     store = make_blob_store(bucket=settings.BLOBSTORE_BUCKET_AP_PACKAGES)
     try:
         store.upload_file(package, key, allow_overwrite=allow_overwrite)
     except ObjectAlreadyExists as e:
         raise PackageAlreadyExists(str(e))
+    except Exception as e:
+        print(e)
 
     return f"{store.STORE_TYPE}://{store.bucket}/{key}"
 

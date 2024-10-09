@@ -1,0 +1,78 @@
+---
+ACCESS_CONTROL_CONFIG:
+  _lookup_field: region
+  data:
+    default:
+      disable_switch_off: []
+      enabled_by_default: []
+      module:
+        - user_access_control
+      redis:
+        db: 1
+        host: 127.0.0.1
+        password: 12345678
+        port: 6379
+      user_tips: username_field
+      user_type: rtx
+BKAUTH_BACKEND_TYPE: bk_token
+BKAUTH_ENVIRONMENT: ieod
+# 参考文档生成和修改 Secret key
+BLOBSTORE_S3_SECRET_KEY: ilaQiQGdmjNVI8DswKFTTO6RkMHWCNLV
+# 蓝鲸PaaS平台访问地址，用于平台访问链接拼接与内置环境变量的配置项 
+BKPAAS_URL: http://198.19.249.53:8080
+BK_IAM_APIGW_SERVICE_STAGE: stage
+# 蓝鲸 PaaS2.0 平台访问地址，用于平台访问链接拼接与内置环境变量的配置项  
+BK_PAAS2_URL: http://paas.pre-dev.com
+# 允许跨域
+CORS_ORIGIN_ALLOW_ALL: true
+# 应用构件包所使用对象存储配置       
+BLOBSTORE_BUCKET_APP_SOURCE: engine-ng
+BLOBSTORE_BUCKET_AP_PACKAGES: engine-ng
+BLOBSTORE_S3_ACCESS_KEY: jYKG1glveJA8X70c
+BLOBSTORE_S3_ENDPOINT: http://127.0.0.1:9090
+BKKRILL_ENCRYPT_SECRET_KEY: 'uMREPHGQOc33aihN_4Pp-ppsrIJyyRhPk4LHfxuGBIM='
+CELERY_BROKER_URL: redis://:12345678@127.0.0.1:6379/0
+CELERY_RESULT_BACKEND: redis://:12345678@127.0.0.1:6379/0
+COMPONENT_SYSTEM_HOST_IN_TEST: http://t.open.example.com
+DATABASE_HOST: 127.0.0.1
+DATABASE_NAME: bk_paas_ng
+DATABASE_PASSWORD: "12345678"
+DATABASE_PORT: "3306"
+DATABASE_USER: root
+
+# workload 数据库配置，目前确实，需要自己建数据库？
+WL_DATABASE_HOST: 127.0.0.1
+WL_DATABASE_PORT: "3306"
+WL_DATABASE_NAME: bk_engine_ng
+WL_DATABASE_PASSWORD: "12345678"
+WL_DATABASE_USER: root
+INTERNAL_SERVICES_JWT_AUTH_CONF:
+  iss: paas-v3
+  key: lean-ut-value
+LOG_LEVEL: DEBUG
+DEBUG: true
+REDIS_URL: redis://:12345678@127.0.0.1:6379/12
+# 各本地增强服务 vendor 基础配置
+SERVICES_VENDOR_CONFIGS:
+  gcs_mysql:
+    get_job_state_url: http://127.0.0.1:8080/api
+    grant_db_url: http://127.0.0.1:8080/api
+# 参考文档生成和修改 Secret key
+SLUG_ENCRYPT_SECRET_KEY: 'uMREPHGQOc33aihN_4Pp-ppsrIJyyRhPk4LHfxuGBIM='
+# 插件中心「源码仓库」相关配置
+PLUGIN_REPO_CONF:
+  api_url: "https://git.example.com/"
+  private_token: ""
+  email: "blueking@example.com"
+  username: "blueking"
+# # 日志 ES 服务地址
+ELASTICSEARCH_HOSTS:
+ - host: fake-es.com
+   http_auth: foo:bar
+   port: '80'
+
+BK_IAM_SKIP: true
+BK_APP_CODE: bk_sops
+BK_APP_SECRET: lDfO4oLa1w4TGiid7Wg3o7X9r2Gv4jJXJ3nF
+EXTRA_INSTALLED_APPS: ["blueapps.contrib.bk_commands"]
+PAAS_WL_CLUSTER_API_SERVER_URLS: ["paasv3-local.paas.pre-dev.com"]

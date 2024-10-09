@@ -43,12 +43,22 @@ def register_builtin_user_groups_and_grade_manager(application: Application):
 
     # 3. 创建默认的 管理者，开发者，运营者用户组
     user_groups = cli.create_builtin_user_groups(grade_manager_id, application.code)
-    ApplicationUserGroup.objects.bulk_create(
-        [
-            ApplicationUserGroup(app_code=application.code, role=group["role"], user_group_id=group["id"])
-            for group in user_groups
-        ]
-    )
+    for group in user_groups:
+        print(group["role"])
+    try:
+        ApplicationUserGroup.objects.bulk_create(
+            [
+                ApplicationUserGroup(app_code=application.code, role=group["role"], user_group_id=group["id"])
+                for group in user_groups
+            ]
+        )
+    except Exception as e:
+        ApplicationUserGroup.objects.bulk_create(
+            [
+                ApplicationUserGroup(app_code=application.code, role=group["role"], user_group_id=group["id"])
+                for group in user_groups
+            ]
+        )
 
     # 4. 为默认的三个用户组授权
     cli.grant_user_group_policies(application.code, application.name, user_groups)
